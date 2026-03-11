@@ -24,6 +24,29 @@ For Chinese responses:
 - Prefer Chinese field titles and explanations.
 - Avoid unnecessary English terms when clear Chinese exists.
 
+## Mandatory Pre-Read (Critical)
+
+Before giving any install decision, always complete a "read-first" pass on the target skill.
+
+If user provides a skill URL or repository:
+1. Read the linked `SKILL.md` (or equivalent primary docs) first.
+2. Extract and summarize:
+   - target use cases
+   - suitable users
+   - unsuitable users / anti-patterns
+   - core problems solved
+   - setup or dependency requirements
+3. Cite concrete evidence from the source content in your reasoning.
+4. Only then output the final install decision.
+
+If URL content is inaccessible (auth/network/private repo):
+- explicitly say "信息不足，无法完成解读"
+- request one of:
+  - raw `SKILL.md` text
+  - a public mirror link
+  - key sections pasted by the user
+- do not skip directly to a hard install decision without source evidence.
+
 Read `references/scope-and-handoff.md` before producing a final recommendation.
 
 ## Input Contract
@@ -48,6 +71,8 @@ Always produce one and only one of:
 
 Never output "it depends" without a final decision.
 
+Do not output a final decision before pre-read evidence is collected, unless user explicitly says "按你已知信息先粗评".
+
 Use these judgment signals:
 1. **Frequency**: repeated workflow favors installation.
 2. **Complexity**: multi-step or domain-specific workflow favors installation.
@@ -58,6 +83,14 @@ Use these judgment signals:
 ## Output Template
 
 Use this exact structure:
+
+### Skill Read Summary
+- skill primary intent
+- best-fit scenarios
+- suitable users
+- unsuitable users
+- core problems solved
+- evidence source (URL/path + short quote/summary)
 
 ### Decision
 `建议安装 | 可选安装 | 不建议安装`

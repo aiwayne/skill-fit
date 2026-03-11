@@ -2,6 +2,16 @@
   "skill_name": "skill-fit",
   "evals": [
     {
+      "id": "trigger-00-url-read-first",
+      "should_trigger": true,
+      "prompt": "这是一个 skill 仓库链接：https://github.com/example/abc-skill 。先解读这个 skill 主要解决什么问题、适合谁、不适合谁，再告诉我该不该安装。",
+      "expected": {
+        "requires_doc_read_first": true,
+        "requires_source_evidence": true,
+        "decision_required": true
+      }
+    },
+    {
       "id": "trigger-01-pm-repeated",
       "should_trigger": true,
       "prompt": "我在做产品管理，每周要反复做竞品拆解和结论归档。这个社媒爆款拆解 skill 该不该装？请给明确结论并告诉我适合和不适合的人群。",

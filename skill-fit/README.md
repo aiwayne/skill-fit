@@ -24,6 +24,21 @@ npx skills add aiwayne/agent-skills@skill-fit
   - `建议安装` / `可选安装` / `不建议安装`
   - Optional compatibility form: Chinese + enum in parentheses.
 
+## Read-First Requirement (Critical)
+
+Before recommendation, `skill-fit` must first read the target skill docs when a URL/repo is provided.
+
+It must summarize:
+
+- target use cases
+- suitable and unsuitable users
+- core problems solved
+- setup/dependency constraints
+
+Then it can give the install decision.
+
+If source docs are inaccessible (private repo/auth/network), it must return "信息不足，无法完成解读" and ask for `SKILL.md` text or a readable link.
+
 ## When to Use
 
 Use `skill-fit` when users ask:
@@ -37,6 +52,7 @@ Use `skill-fit` when users ask:
 
 `skill-fit` always returns:
 
+- skill read summary with source evidence
 - one hard decision: `RECOMMEND_INSTALL` / `OPTIONAL_INSTALL` / `DO_NOT_INSTALL`
 - usage scene tags
 - value tags
