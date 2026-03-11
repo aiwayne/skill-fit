@@ -10,6 +10,12 @@
 npx skills add aiwayne/agent-skills@skill-fit
 ```
 
+## Decision Classes
+
+- `RECOMMEND_INSTALL`: clear expected upside, recurring value, acceptable setup cost
+- `OPTIONAL_INSTALL`: situational value, useful but not mandatory
+- `DO_NOT_INSTALL`: low frequency or low complexity where setup overhead is not justified
+
 ## When to Use
 
 Use `skill-fit` when users ask:
@@ -30,6 +36,40 @@ Use `skill-fit` when users ask:
 - unsuitable user tags
 - install threshold
 - no-install fallback
+
+## Output Example
+
+```markdown
+### Decision
+RECOMMEND_INSTALL
+
+### Why (Evidence)
+- Team runs this workflow 3-5 times per week.
+- Current process has multi-role handoff with repeated quality drift.
+
+### Usage Scene Tags
+- high_frequency_repetition
+- cross_team_standardization
+- complex_multistep_workflow
+
+### Value Tags
+- efficiency_gain
+- consistency_gain
+- risk_reduction
+
+### Suitable User Tags
+- pm_team_lead
+- ops_manager_multi_team
+
+### Unsuitable User Tags
+- solo_builder_oneoff
+
+### Install Threshold
+- Weekly usage >= 2 and at least 2 collaborators involved.
+
+### No-Install Fallback
+- Keep native workflow and use a lightweight checklist template.
+```
 
 ## Decision Model
 
