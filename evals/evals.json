@@ -1,0 +1,67 @@
+{
+  "skill_name": "skill-fit",
+  "evals": [
+    {
+      "id": "trigger-01-pm-repeated",
+      "should_trigger": true,
+      "prompt": "我在做产品管理，每周要反复做竞品拆解和结论归档。这个社媒爆款拆解 skill 该不该装？请给明确结论并告诉我适合和不适合的人群。",
+      "expected": {
+        "decision_required": true,
+        "requires_profile_tags": true,
+        "requires_scene_tags": true
+      }
+    },
+    {
+      "id": "trigger-02-design-team-standard",
+      "should_trigger": true,
+      "prompt": "我们是 5 人设计团队，经常做后台页面和看板，想知道 console-ui 这种 skill 值不值得装，给我使用场景和价值标签。",
+      "expected": {
+        "decision_required": true,
+        "requires_profile_tags": true,
+        "requires_scene_tags": true
+      }
+    },
+    {
+      "id": "trigger-03-low-frequency-check",
+      "should_trigger": true,
+      "prompt": "我只是偶尔做一次信息图，baoyu-infographic 这个 skill 该不该装？请直接判断并给不安装时替代方案。",
+      "expected": {
+        "decision_required": true,
+        "requires_profile_tags": true,
+        "requires_scene_tags": true
+      }
+    },
+    {
+      "id": "non-trigger-01-find-only",
+      "should_trigger": false,
+      "prompt": "帮我找一个能做 PR review 的 skill，先给几个候选。",
+      "expected": {
+        "belongs_to": "find-skills"
+      }
+    },
+    {
+      "id": "non-trigger-02-install-command-only",
+      "should_trigger": false,
+      "prompt": "告诉我 vercel-react-best-practices 的安装命令就行。",
+      "expected": {
+        "belongs_to": "find-skills"
+      }
+    },
+    {
+      "id": "non-trigger-03-create-new-skill",
+      "should_trigger": false,
+      "prompt": "我想从零做一个招聘面试分析 skill，帮我起草并迭代。",
+      "expected": {
+        "belongs_to": "skill-creator"
+      }
+    }
+  ],
+  "consistency_check": {
+    "method": "run_same_prompt_twice",
+    "target_prompts": [
+      "trigger-01-pm-repeated",
+      "trigger-02-design-team-standard"
+    ],
+    "pass_condition": "decision_class_should_match"
+  }
+}

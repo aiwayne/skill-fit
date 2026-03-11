@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Fit（安装适配度解读）"
+  short_description: "判断一个 skill 该不该装，并输出使用场景、价值、适用/不适合人群标签。"
+  default_prompt: "请用 $skill-fit 评估这个 skill 是否值得安装，并给出明确结论与标签。"
