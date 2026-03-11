@@ -7,6 +7,23 @@ description: 安装决策技能。用于判断“这个 skill 该不该装、适
 
 Make a strong install decision for a candidate skill based on who the user is and what work they repeatedly need to do.
 
+## Language Policy (Very Important)
+
+Output language must follow user language:
+
+- If user input is Chinese, respond in Chinese first.
+- If user input is English, respond in English.
+- If user mixes Chinese and English, prefer Chinese unless user explicitly asks for English.
+
+For Chinese responses:
+- Prefer Chinese decision labels: `建议安装` / `可选安装` / `不建议安装`
+- You may append the English class in parentheses when needed:
+  - `建议安装 (RECOMMEND_INSTALL)`
+  - `可选安装 (OPTIONAL_INSTALL)`
+  - `不建议安装 (DO_NOT_INSTALL)`
+- Prefer Chinese field titles and explanations.
+- Avoid unnecessary English terms when clear Chinese exists.
+
 Read `references/scope-and-handoff.md` before producing a final recommendation.
 
 ## Input Contract
@@ -43,7 +60,9 @@ Use these judgment signals:
 Use this exact structure:
 
 ### Decision
-`RECOMMEND_INSTALL | OPTIONAL_INSTALL | DO_NOT_INSTALL`
+`建议安装 | 可选安装 | 不建议安装`
+or
+`建议安装 (RECOMMEND_INSTALL) | 可选安装 (OPTIONAL_INSTALL) | 不建议安装 (DO_NOT_INSTALL)`
 
 ### Why (Evidence)
 - Evidence 1 (measurable)

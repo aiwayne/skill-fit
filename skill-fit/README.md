@@ -16,6 +16,14 @@ npx skills add aiwayne/agent-skills@skill-fit
 - `OPTIONAL_INSTALL`: situational value, useful but not mandatory
 - `DO_NOT_INSTALL`: low frequency or low complexity where setup overhead is not justified
 
+## Language Behavior
+
+- If user asks in Chinese, `skill-fit` should answer in Chinese by default.
+- If user asks in English, `skill-fit` should answer in English.
+- For Chinese output, prefer Chinese decision labels:
+  - `建议安装` / `可选安装` / `不建议安装`
+  - Optional compatibility form: Chinese + enum in parentheses.
+
 ## When to Use
 
 Use `skill-fit` when users ask:
